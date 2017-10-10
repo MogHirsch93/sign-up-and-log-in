@@ -10,9 +10,9 @@ router.get('/', function(req,res){
   var password= req.query.password
 
   User.find({email: email}, function(err,user){
-
-    if(password == user[password]){
-        return res.render("home",{name: user.name})
+    console.log(user);
+    if(password == user[0].password){
+        return res.render("home",{name: user[0].password})
     }
     res.send(err);
   })
